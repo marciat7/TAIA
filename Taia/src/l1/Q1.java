@@ -1,19 +1,28 @@
 package l1;
 
+import java.util.Vector;
+
 public class Q1 {
 
 	public static void main(String[] args) {
-		System.out.println("oi");
 		
 		Arquivo arquivo = new Arquivo("saida.csv");
+	
+		Vector<Aresta> arestas = new Vector<Aresta>();
 		
-		int[] vertices = new int[200];
-		
-		for (int i = 0; i < vertices.length; i++) {
-			
-			arquivo.escrever(""+i+ "\n");
-			
+		for (int i = 0; i < 200; i++) {
+			arestas.add(new Aresta((int)(Math.random()*200),(int)(Math.random()*200)));
 		}
+		
+		
+		arquivo.escrever("souce;target;type");
+		for (int i = 0; i < arestas.size(); i++) {
+			arquivo.escrever("\n"+ arestas.get(i).v1+";" + arestas.get(i).v2 + ";unidirected");			
+			
+			
+		}		
+		
+		
 		
 		arquivo.fechar();
 
