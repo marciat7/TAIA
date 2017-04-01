@@ -1,0 +1,43 @@
+package l1;
+
+import java.util.Vector;
+
+public class Q1 {
+
+	public static void main(String[] args) {
+		
+		Arquivo arquivo = new Arquivo("saida.csv");
+		Arquivo arquivo2 = new Arquivo("sem escala.csv");
+	
+		Vector<Aresta> arestas = new Vector<Aresta>();
+		Vertice[] vertices = new Vertice[200];
+		
+		for (int i = 0; i < vertices.length; i++) {
+			vertices[i] = new Vertice(i);
+			int tgt = (int) (Math.random() * i);
+			if (Math.random() * vertices[tgt].grau < 0.5) {
+				Aresta a = new Aresta(i, tgt);
+				vertices[i].addAresta(a);
+				vertices[tgt].addAresta(a);
+			}
+		}
+		/*
+		for (int i = 0; i < 200; i++) {
+			arestas.add(new Aresta((int)(Math.random()*200),(int)(Math.random()*200)));
+		}
+		
+		
+		arquivo.escrever("Source;Target;Type");
+		for (int i = 0; i < arestas.size(); i++) {
+			arquivo.escrever("\n"+ arestas.get(i).v1+";" + arestas.get(i).v2 + ";undirected");			
+			
+			
+		}	
+		
+		*/
+		
+		arquivo.fechar();
+
+	}
+
+}

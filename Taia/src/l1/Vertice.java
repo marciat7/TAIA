@@ -4,18 +4,24 @@ import java.util.Vector;
 
 public class Vertice {
 	
-	int id;
-	Vector<Integer> arestas;
+	int id, grau;
+	Vector<Aresta> arestas;
+	
 	
 	
 	public Vertice(int id) {
 		this.id = id;
-		arestas = new Vector<Integer>();
+		arestas = new Vector<Aresta>();
+		this.grau = 1;
 	}
 	
 
-	public void addAresta(int id) {
-		arestas.add(id);
+	public void addAresta(Aresta a) {
+		arestas.add(a);
+	}
+	
+	public void addGrau() {
+		this.grau++;
 	}
 	
 
